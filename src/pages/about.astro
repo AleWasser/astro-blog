@@ -1,5 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "About Me";
+
+const skills = ["HTML", "CSS", "JavaScript", "Vue", "Astro", "Writing Docs"];
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <Layout>
@@ -8,7 +15,7 @@ import Layout from "../layouts/Layout.astro";
     <a href="/blog/">Blog</a>
 
     <h1>My Astro Site</h1>
-    <h1>About Me</h1>
+    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>
@@ -20,4 +27,28 @@ import Layout from "../layouts/Layout.astro";
         This site will update as I complete more of the tutorial, so keep
         checking back and see how my journey is going!
     </p>
+
+    <p>My skills are:</p>
+    <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {
+        goal === 3 ? (
+            <p>My goal is to finish in 3 days.</p>
+        ) : (
+            <p>My goal is not 3 days.</p>
+        )
+    }
 </Layout>
+
+<style>
+    h1 {
+        color: purple;
+        font-size: 4rem;
+    }
+</style>
